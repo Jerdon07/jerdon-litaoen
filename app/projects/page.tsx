@@ -1,18 +1,10 @@
-import { Globe } from "lucide-react"
+import { Card, CardAction, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { projects } from "@/lib/projects"
+import { ArrowRight } from "lucide-react"
 import Image from "next/image"
+import Link from "next/link"
 
 export default function Projects() {
-    const projects = [
-        {
-            title: "Hrvst",
-            description: "A Laravel-based inventory management system for a local farm supply store, featuring real-time stock tracking and automated order processing.",
-            technologies: ["Laravel", "Vue 3", "InertiaJS", "PostgreSQL"],
-            image: "/hrvst.png",
-            link: "https://hrvst.free.laravel.cloud/",
-            repository: "https://github.com/Cresco-Team/Hrvst-v2",
-            icon: "devicon-github-original",
-        }
-    ]
 
     return (
         <div className="flex flex-col justify-center items-center px-4">
@@ -23,27 +15,19 @@ export default function Projects() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 overflow-hidden flex-1 w-full md:w-[80%]">
                 {projects.map((project) => (
-                    <div key={project.title} className="flex flex-col bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden">
-                        <div className="relative h-40 overflow-hidden bg-zinc-900">
-                            <Image src={project.image} alt={project.title} fill unoptimized />
-                        </div>
-
-                        <div className="relative p-4">
-                            <h3 className="text-lg font-semibold">{project.title}</h3>
-                            <p className="text-sm text-zinc-400">{project.description}</p>
-
-                            <div className="flex justify-end gap-3 mt-3">
-                                <a href={project.link} target="_blank">
-                                    <Globe size={26} />
-                                </a>
-                                <a href={project.repository} target="_blank">
-                                    <i className={`${project.icon} text-2xl`}></i>
-                                </a>
+                    <Link href={`/projects/${project.id}`} key={project.id}>
+                        <Card className="pt-0 cursor-pointer border">
+                            <div className="relative aspect-video bg-black/35">
+                                <Image src={project.thumbnail} alt={project.title} fill />
                             </div>
 
-                            <div className="absolute bottom-[-20] left-[-20] w-30 h-15 rounded-tl-full blur-2xl bg-emerald-600"></div>
-                        </div>
-                    </div>
+                            <CardHeader>
+                                <CardTitle>{ project.title }</CardTitle>
+                                <CardDescription>{ project.subtitle }</CardDescription>
+                                <CardAction><ArrowRight /></CardAction>
+                            </CardHeader>
+                        </Card>
+                    </Link>
                 ))}
             </div>
         </div>
