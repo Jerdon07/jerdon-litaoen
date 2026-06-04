@@ -6,7 +6,7 @@ export const projects = [
         subtitle: 'Connecting Frmers & Dealers through a Real-Time Aggricultural Marketplace',
         description: 'A specialized agriculture logistics and marketplace platform designed to streamline crop trading within the Cordillera region. Built to replace volatile, word-of-mouth scheduling, the platform synchronizes trading activities at the La Trinidad Vegetable Trading Post. By providing a symmetrical, single-parent posting system, Hrvst allows both farmers to broadcast upcoming supply and dealers to log current demand, stabilizing local supply chains through data-driven transparency.',
         year: 2026,
-        thumbnail: './hrvst.png',
+        thumbnail: '/hrvst.png',
         stack: ['Laravel', 'Vue', 'Inertia', 'PostgreSQL'],
         mission: 'To empower the Cordillera agricultural community by replacing unpredictable trading habits with predictive, rolling lifecycle data—ensuring fair market visibility for farmers and reliable sourcing for dealers.',
         role: ['Solo Developer'],
