@@ -40,11 +40,11 @@ export default function RootLayout({
       lang="en"
       className={cn("antialiased", geistSans.variable, geistMono.variable, "font-sans", outfit.variable, geistHeading.variable)}
     >
-      <body className="min-h-screen flex flex-col bg-zinc-950 text-white font-sans">
+      <body className="min-h-screen flex flex-col bg-background">
         <header className="flex items-center justify-between px-6 sm:px-10 py-5 border-b border-zinc-800/60">
           <Link
             href="/"
-            className="text-sm font-bold tracking-widest uppercase text-zinc-100 hover:text-emerald-400 transition-colors duration-200"
+            className="text-sm font-bold tracking-widest uppercase transition-colors duration-200"
           >
             JL
           </Link>
@@ -53,7 +53,7 @@ export default function RootLayout({
               <Link
                 key={href}
                 href={href}
-                className="text-sm text-zinc-400 hover:text-emerald-400 transition-colors duration-200 tracking-wide"
+                className="text-sm text-foreground hover:text-primary transition-colors duration-200 tracking-wide"
               >
                 {label}
               </Link>
