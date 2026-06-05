@@ -1,8 +1,9 @@
 import { Badge } from "@/components/ui/badge"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardAction, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { Separator } from "@/components/ui/separator"
 import { projects } from "@/lib/projects"
+import { Award, Key, Sparkles, Target, TextAlignStart, Type } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 
@@ -21,14 +22,14 @@ export default async function Show({ params }: PageProps) {
 
     console.log(project?.id)
     return (
-        <div className="mx-12 my-4 font-semibold space-y-6">
+        <div className="mx-12 my-4 font-semibold space-y-6 cursor-default">
             <div className="grid grid-cols-3 gap-10">
 
                 {/* Left */}
                 <div className="col-span-1">
                     <Card className="pt-0">
-                        <Link href={project!.link} target="_blank" className="relative aspect-video">
-                            <Image src={project!.thumbnail} alt={project!.title} fill/>
+                        <Link href={project!.link} target="_blank" className="relative aspect-video overflow-hidden">
+                            <Image src={project!.thumbnail} alt={project!.title} fill className="grayscale-50 brightness-75 hover:brightness-100 hover:grayscale-0 transition hover:scale-115 ease-in-out duration-800"/>
                         </Link>
 
                         <CardHeader>
@@ -41,6 +42,12 @@ export default async function Show({ params }: PageProps) {
                                     <Badge key={stack.name} className={`${stack.color}} text-foreground px-1`}>{ stack.name }</Badge>
                                 )) }</div>
                             </CardDescription>
+
+                            <CardAction>
+                                <Link href={project!.github} target="_blank">
+                                    <i className="devicon-github-original white text-2xl" />
+                                </Link>
+                            </CardAction>
                         </CardHeader>
 
                         <CardContent className="space-y-4">
@@ -69,27 +76,33 @@ export default async function Show({ params }: PageProps) {
                 </div>
 
                 {/* Right */}
-                <ScrollArea className="max-h-[80vh] p-4 rounded-md border col-span-2">
-                    <div className="space-y-4">
+                <ScrollArea className="max-h-[80vh] p-4 border col-span-2">
+                    <div className="space-y-4 text-foreground/80">
 
-                        <div>
-                            <span className="text-xs">Subtitle</span>
+                        <div className="hover:text-foreground duration-500 cursor-default">
+                            <span className="text-xs flex items-center"><Type size={15} className="mr-1" />Subtitle</span>
                             <h3 className="text-xl">{ project?.subtitle }</h3>
                         </div>
 
-                        <div>
-                            <span className="text-xs">Description</span>
+                        <Separator />
+
+                        <div className="hover:text-foreground duration-500 cursor-default">
+                            <span className="text-xs flex items-center"><TextAlignStart size={15} className="mr-1" />Description</span>
                             <h5 className="text-md">{ project?.description }</h5>
                         </div>
 
-                        <div>
-                            <span className="text-xs">Mission:</span>
+                        <Separator />
+
+                        <div className="hover:text-foreground duration-500 cursor-default">
+                            <span className="text-xs flex items-center"><Target size={15} className="mr-1" />Mission:</span>
                             <p className="text-md">{ project?.mission }</p>
                         </div>
 
+                        <Separator />
+
                         {/* Features */}
-                        <div className="text-center space-y-2">
-                            <h5 className="text-2xl">Features</h5>
+                        <div className="text-center space-y-2 hover:text-foreground duration-500 cursor-default">
+                            <h5 className="text-2xl flex items-center justify-center"><Sparkles className="mr-1" />Features</h5>
 
                             <div className="grid md:grid-cols-2">
                                 { project?.features.map((feat) => (
@@ -103,9 +116,11 @@ export default async function Show({ params }: PageProps) {
                             </div>
                         </div>
 
+                        <Separator />
+
                         {/* Results */}
-                        <div className="text-center space-y-2">
-                            <h5 className="text-2xl">Results</h5>
+                        <div className="text-center space-y-2 hover:text-foreground duration-500 cursor-default">
+                            <h5 className="text-2xl flex items-center justify-center"><Award className="mr-1" />Results</h5>
 
                             <div className="grid md:grid-cols-2">
                                 { project?.results.map((result) => (
@@ -119,9 +134,11 @@ export default async function Show({ params }: PageProps) {
                             </div>
                         </div>
 
+                        <Separator />
+
                         {/* Key Takeaways */}
-                        <div className="text-center space-y-2">
-                            <h5 className="text-2xl">Key Takeaways</h5>
+                        <div className="text-center space-y-2 hover:text-foreground duration-500 cursor-default">
+                            <h5 className="text-2xl flex items-center justify-center"><Key className="mr-1" />Key Takeaways</h5>
 
                             <div className="grid md:grid-cols-2">
                                 { project?.takeaways.map((takeaway) => (
