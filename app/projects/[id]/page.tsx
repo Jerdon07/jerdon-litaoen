@@ -108,14 +108,24 @@ export default async function Show({ params }: PageProps) {
                             </h5>
 
                             <div className="grid md:grid-cols-2">
-                                { project?.features.map((feat) => (
-                                        <Card key={feat.title}>
-                                        <CardHeader>
+                                { project?.features.map((feat) => {
+                                    const Icon = feat.icon
+
+                                    return (
+
+                                        <Card key={feat.title} className="gap-1">
+                                        <CardHeader className="flex flex-col items-center justify-center">
+                                            <div className="size-10 rounded-full bg-emerald-500/50 text-emerald-500 flex items-center justify-center mb-2">
+                                                <Icon className="size-5" />
+                                            </div>
                                             <CardTitle>{ feat.title }</CardTitle>
-                                            <CardDescription>{ feat.description }</CardDescription>
                                         </CardHeader>
+
+                                        <CardContent>
+                                            <p className="font-normal">{ feat.description }</p>
+                                        </CardContent>
                                     </Card>
-                                ))}
+                                )})}
                             </div>
                         </div>
 
@@ -129,14 +139,22 @@ export default async function Show({ params }: PageProps) {
                             </h5>
 
                             <div className="grid md:grid-cols-2">
-                                { project?.results.map((result) => (
-                                        <Card key={result.title}>
-                                        <CardHeader>
+                                { project?.results.map((result) => {
+                                    const Icon = result.icon
+
+                                    return(
+                                        <Card key={result.title} className="gap-1">
+                                        <CardHeader className="flex flex-col items-center justify-center">
+                                            <div className="size-10 rounded-full bg-emerald-500/50 text-emerald-500 flex items-center justify-center mb-2">
+                                                <Icon className="size-5" />
+                                            </div>
                                             <CardTitle>{ result.title }</CardTitle>
-                                            <CardDescription>{ result.description }</CardDescription>
                                         </CardHeader>
+                                        <CardContent>
+                                            <p className="font-normal">{ result.description }</p>
+                                        </CardContent>
                                     </Card>
-                                ))}
+                                )})}
                             </div>
                         </div>
 
@@ -150,14 +168,23 @@ export default async function Show({ params }: PageProps) {
                             </h5>
 
                             <div className="grid md:grid-cols-2">
-                                { project?.takeaways.map((takeaway) => (
-                                        <Card key={takeaway.title}>
-                                        <CardHeader>
+                                { project?.takeaways.map((takeaway) => {
+                                    const Icon = takeaway.icon
+
+                                    return(
+                                        <Card key={takeaway.title} className="gap-1">
+                                        <CardHeader className="flex flex-col items-center justify-center">
+                                            <div className="size-10 rounded-full bg-emerald-500/50 text-emerald-500 flex items-center justify-center mb-2">
+                                                <Icon className="size-5" />
+                                            </div>
                                             <CardTitle>{ takeaway.title }</CardTitle>
-                                            <CardDescription>{ takeaway.description }</CardDescription>
                                         </CardHeader>
+
+                                        <CardContent>
+                                            <p className="font-normal">{ takeaway.description }</p>
+                                        </CardContent>
                                     </Card>
-                                ))}
+                                )})}
                             </div>
                         </div>
                     </div>
