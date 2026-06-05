@@ -22,8 +22,8 @@ export default async function Show({ params }: PageProps) {
 
     console.log(project?.id)
     return (
-        <div className="mx-12 my-4 font-semibold space-y-6 cursor-default">
-            <div className="grid grid-cols-3 gap-10">
+        <div className="md:mx-12 my-4 font-semibold space-y-6 cursor-default">
+            <div className="grid md:grid-cols-3 gap-10">
 
                 {/* Left */}
                 <div className="col-span-1">
@@ -76,33 +76,36 @@ export default async function Show({ params }: PageProps) {
                 </div>
 
                 {/* Right */}
-                <ScrollArea className="max-h-[80vh] p-4 border col-span-2">
+                <ScrollArea className="md:max-h-[80vh] p-4 border md:col-span-2">
                     <div className="space-y-4 text-foreground/80">
 
                         <div className="hover:text-foreground duration-500 cursor-default">
                             <span className="text-xs flex items-center"><Type size={15} className="mr-1" />Subtitle</span>
-                            <h3 className="text-xl">{ project?.subtitle }</h3>
+                            <h3 className="md:text-xl">{ project?.subtitle }</h3>
                         </div>
 
                         <Separator />
 
                         <div className="hover:text-foreground duration-500 cursor-default">
                             <span className="text-xs flex items-center"><TextAlignStart size={15} className="mr-1" />Description</span>
-                            <h5 className="text-md">{ project?.description }</h5>
+                            <h5 className="text-xs md:text-md">{ project?.description }</h5>
                         </div>
 
                         <Separator />
 
                         <div className="hover:text-foreground duration-500 cursor-default">
                             <span className="text-xs flex items-center"><Target size={15} className="mr-1" />Mission:</span>
-                            <p className="text-md">{ project?.mission }</p>
+                            <p className="text-sm md:text-md">{ project?.mission }</p>
                         </div>
 
                         <Separator />
 
                         {/* Features */}
                         <div className="text-center space-y-2 hover:text-foreground duration-500 cursor-default">
-                            <h5 className="text-2xl flex items-center justify-center"><Sparkles className="mr-1" />Features</h5>
+                            <h5 className="text-sm md:text-2xl flex items-center md:justify-center">
+                                <Sparkles className="mr-1 size-4 md:size-6" />
+                                Features
+                            </h5>
 
                             <div className="grid md:grid-cols-2">
                                 { project?.features.map((feat) => (
@@ -120,7 +123,10 @@ export default async function Show({ params }: PageProps) {
 
                         {/* Results */}
                         <div className="text-center space-y-2 hover:text-foreground duration-500 cursor-default">
-                            <h5 className="text-2xl flex items-center justify-center"><Award className="mr-1" />Results</h5>
+                            <h5 className="text-sm md:text-2xl flex items-center md:justify-center">
+                                <Award className="mr-1 size-4 md:size-6" />
+                                Results
+                            </h5>
 
                             <div className="grid md:grid-cols-2">
                                 { project?.results.map((result) => (
@@ -138,7 +144,10 @@ export default async function Show({ params }: PageProps) {
 
                         {/* Key Takeaways */}
                         <div className="text-center space-y-2 hover:text-foreground duration-500 cursor-default">
-                            <h5 className="text-2xl flex items-center justify-center"><Key className="mr-1" />Key Takeaways</h5>
+                            <h5 className="text-sm md:text-2xl flex items-center md:justify-center">
+                                <Key className="mr-1 size-4 md:size-6" />
+                                Key Takeaways
+                            </h5>
 
                             <div className="grid md:grid-cols-2">
                                 { project?.takeaways.map((takeaway) => (
