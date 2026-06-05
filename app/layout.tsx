@@ -4,6 +4,7 @@ import "./globals.css";
 import "devicon/devicon.min.css";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
+import Navbar from "@/components/navbar";
 
 const geistHeading = Geist({subsets:['latin'],variable:'--font-heading'});
 
@@ -41,24 +42,14 @@ export default function RootLayout({
       className={cn("antialiased", geistSans.variable, geistMono.variable, "font-sans", outfit.variable, geistHeading.variable)}
     >
       <body className="min-h-screen flex flex-col bg-background">
-        <header className="flex items-center justify-between px-6 sm:px-10 py-5 border-b border-zinc-800/60">
+        <header className="h-16 flex items-center justify-between px-6 sm:px-10 border-b border-zinc-800/60">
           <Link
             href="/"
             className="text-sm font-bold tracking-widest uppercase transition-colors duration-200"
           >
             JL
           </Link>
-          <nav className="flex items-center gap-5 sm:gap-8">
-            {navLinks.map(({ label, href }) => (
-              <Link
-                key={href}
-                href={href}
-                className="text-sm text-foreground hover:text-primary transition-colors duration-200 tracking-wide"
-              >
-                {label}
-              </Link>
-            ))}
-          </nav>
+          <Navbar />
         </header>
         <main className="flex-1 flex flex-col">
           {children}
