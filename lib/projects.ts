@@ -21,6 +21,24 @@ export const projects = [
             }, {
                 name: 'PostgreSQL',
                 color: 'bg-indigo-500/50 text-indigo-500'
+            }, {
+                name: 'Tailwind',
+                color: 'bg-sky-500/50 text-sky-500'
+            }, {
+                name: 'Leaflet',
+                color: 'bg-lime-500/50 text-lime-500'
+            }, {
+                name: 'Tanstack Table',
+                color: 'bg-yellow-500/50 text-yellow-500'
+            }, {
+                name: 'Chart JS',
+                color: 'bg-pink-500/50 text-pink-500'
+            }, {
+                name: 'Postman',
+                color: 'bg-orange-500/50 text-orange-500'
+            }, {
+                name: 'ShadCN UI',
+                color: 'bg-gray-500/50 text-gray-500'
             }
         ],
         mission: 'To empower the Cordillera agricultural community by replacing unpredictable trading habits with predictive, rolling lifecycle data—ensuring fair market visibility for farmers and reliable sourcing for dealers.',
