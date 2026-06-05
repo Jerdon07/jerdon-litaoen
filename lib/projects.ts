@@ -1,3 +1,4 @@
+import { Banknote, Cable, CalendarClock, HeartHandshake, Layers, Map, MapPinned, Shrub, Store, Zap } from "lucide-react";
 
 export const projects = [
     {
@@ -30,40 +31,50 @@ export const projects = [
         features: [
             {
                 title: 'Symmetrical Unified Marketplace',
-                description: 'Utilizes a shared parent posting structure that handles both supply and demand symmetrically, ensuring a balanced, single-source-of-truth architecture.'
+                description: 'Utilizes a shared parent posting structure that handles both supply and demand symmetrically, ensuring a balanced, single-source-of-truth architecture.',
+                icon: Store,
             }, {
                 title: 'Rolling Yield Forecasts',
-                description: 'Replaces restrictive static harvest dates with a flexible, monthly rolling lifecycle model that adapts seamlessly to the natural unpredictability of agricultural yields.'
+                description: 'Replaces restrictive static harvest dates with a flexible, monthly rolling lifecycle model that adapts seamlessly to the natural unpredictability of agricultural yields.',
+                icon: CalendarClock
             }, {
                 title: 'Geospatial Farmer Clustering',
-                description: 'Integrates interactive mapping and marker clustering to map out farmer locations, optimizing regional logistics and pick-up routing for dealers.'
+                description: 'Integrates interactive mapping and marker clustering to map out farmer locations, optimizing regional logistics and pick-up routing for dealers.',
+                icon: MapPinned
             }, {
                 title: 'Real-Time Price Management',
-                description: 'Provides immediate visibility into shifting market rates at the La Trinidad Trading Post, allowing users to make informed, data-driven pricing decisions.'
+                description: 'Provides immediate visibility into shifting market rates at the La Trinidad Trading Post, allowing users to make informed, data-driven pricing decisions.',
+                icon: Banknote
             }
         ],
         results: [
             {
                 title: 'Architectural Efficiency',
-                description: 'Designed and deployed a highly scalable decoupled architecture using a lean Service/Action pattern in Laravel 13, keeping controllers exceptionally thin and maintainable.'
+                description: 'Designed and deployed a highly scalable decoupled architecture using a lean Service/Action pattern in Laravel 13, keeping controllers exceptionally thin and maintainable.',
+                icon: Zap
             }, {
                 title: 'Fluid User Experience',
-                description: 'Built a high-performance, SPA-like frontend using Vue 3 (Composition API) and Tailwind CSS v4, bound seamlessly to the backend via Inertia.js v2 for rapid data synchronization without complex state management.'
+                description: 'Built a high-performance, SPA-like frontend using Vue 3 (Composition API) and Tailwind CSS v4, bound seamlessly to the backend via Inertia.js v2 for rapid data synchronization without complex state management.',
+                icon: HeartHandshake
             }, {
                 title: 'Optimized Spatial Data',
-                description: 'Handled heavy regional coordinate datasets efficiently on the frontend using Leaflet.js and marker clustering, preventing UI lag during map interactions.'
+                description: 'Handled heavy regional coordinate datasets efficiently on the frontend using Leaflet.js and marker clustering, preventing UI lag during map interactions.',
+                icon: Map
             }
         ],
         takeaways: [
             {
                 title: 'Software Must Flex for Real Life',
-                description: 'Shifting from strict static harvest deadlines to a monthly forecast model proved that software architecture must bend to real-world operational realities—like weather and farming cycles—rather than forcing users into rigid digital boxes.'
+                description: 'Shifting from strict static harvest deadlines to a monthly forecast model proved that software architecture must bend to real-world operational realities—like weather and farming cycles—rather than forcing users into rigid digital boxes.',
+                icon: Shrub
             }, {
                 title: 'Domain Logic Belongs in Actions',
-                description: 'Keeping the backend maintainable over a long development cycle heavily depended on isolating business logic into single-responsibility Action layers, proving that strict architectural patterns pay off as project scope scales.'
+                description: 'Keeping the backend maintainable over a long development cycle heavily depended on isolating business logic into single-responsibility Action layers, proving that strict architectural patterns pay off as project scope scales.',
+                icon: Layers
             }, {
                 title: "State Sharing Doesn't Need Over-Engineering",
-                description: 'Leveraging the Inertia.js bridge allowed for rapid data flow between Laravel and Vue 3 devtools without the overhead of managing a separate REST API or heavy global frontend state stores.'
+                description: 'Leveraging the Inertia.js bridge allowed for rapid data flow between Laravel and Vue 3 devtools without the overhead of managing a separate REST API or heavy global frontend state stores.',
+                icon: Cable
             }
         ],
 
