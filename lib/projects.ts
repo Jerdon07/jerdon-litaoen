@@ -7,7 +7,21 @@ export const projects = [
         description: 'A specialized agriculture logistics and marketplace platform designed to streamline crop trading within the Cordillera region. Built to replace volatile, word-of-mouth scheduling, the platform synchronizes trading activities at the La Trinidad Vegetable Trading Post. By providing a symmetrical, single-parent posting system, Hrvst allows both farmers to broadcast upcoming supply and dealers to log current demand, stabilizing local supply chains through data-driven transparency.',
         year: 2026,
         thumbnail: '/hrvst.png',
-        stack: ['Laravel', 'Vue', 'Inertia', 'PostgreSQL'],
+        stack: [
+            {
+                name: 'Laravel',
+                color: 'bg-orange-500/50 text-orange-500'
+            }, {
+                 name: 'Vue',
+                 color: 'bg-emerald-500/50 text-emerald-500'
+            }, {
+                name: 'Inertia',
+                color: 'bg-purple-500/50 text-purple-500'
+            }, {
+                name: 'PostgreSQL',
+                color: 'bg-indigo-500/50 text-indigo-500'
+            }
+        ],
         mission: 'To empower the Cordillera agricultural community by replacing unpredictable trading habits with predictive, rolling lifecycle data—ensuring fair market visibility for farmers and reliable sourcing for dealers.',
         role: ['Solo Developer'],
         timeline: ['6 Months Capstone Project'],
