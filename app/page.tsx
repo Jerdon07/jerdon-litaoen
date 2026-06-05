@@ -41,7 +41,7 @@ export default function Home() {
             alt="Jerdon Litaoen"
             fill
             priority
-            className="object-cover object-top grayscale-50 brightness-90"
+            className="object-cover object-top"
           />
         </div>
       </div>
