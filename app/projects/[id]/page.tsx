@@ -1,6 +1,7 @@
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { ScrollArea } from "@/components/ui/scroll-area"
+import { Separator } from "@/components/ui/separator"
 import { projects } from "@/lib/projects"
 import Image from "next/image"
 import Link from "next/link"
@@ -21,9 +22,8 @@ export default async function Show({ params }: PageProps) {
     console.log(project?.id)
     return (
         <div className="mx-12 my-4 font-semibold space-y-6">
-            <h1 className="text-5xl">{ project?.title }</h1>
-
             <div className="grid grid-cols-3 gap-10">
+
                 {/* Left */}
                 <div className="col-span-1">
                     <Card className="pt-0">
@@ -31,27 +31,38 @@ export default async function Show({ params }: PageProps) {
                             <Image src={project!.thumbnail} alt={project!.title} fill/>
                         </Link>
 
+                        <CardHeader>
+                            <CardTitle>
+                                { project?.title }
+                            </CardTitle>
+
+                            <CardDescription>
+                            <div className="space-x-2">{ project?.stack.map((stack) => (
+                                    <Badge key={stack.name} className={`${stack.color}} text-foreground px-1`}>{ stack.name }</Badge>
+                                )) }</div>
+                            </CardDescription>
+                        </CardHeader>
+
                         <CardContent className="space-y-4">
-                            <div>
-                                <span className="text-xs italic">Year:</span>
-                                <p>{ project?.year }</p>
-                            </div>
+                            <Separator />
 
                             <div>
                                 <span className="text-xs italic">Role:</span>
                                 <p>{ project?.role }</p>
                             </div>
 
-                            <div>
-                                <span className="text-xs italic">Timeline:</span>
-                                <p>{ project?.timeline }</p>
-                            </div>
+                            <div className="flex space-x-4">
+                                <div>
+                                    <span className="text-xs italic">Year:</span>
+                                    <p>{ project?.year }</p>
+                                </div>
 
-                            <div>
-                                <span className="text-xs italic">Tech Stack:</span>
-                                <div className="space-x-4">{ project?.stack.map((stack) => (
-                                    <Badge key={stack} className="bg-primary/50 text-primary">{ stack }</Badge>
-                                )) }</div>
+                                <Separator orientation="vertical" />
+
+                                <div>
+                                    <span className="text-xs italic">Timeline:</span>
+                                    <p>{ project?.timeline }</p>
+                                </div>
                             </div>
                         </CardContent>
                     </Card>
