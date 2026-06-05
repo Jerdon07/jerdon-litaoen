@@ -1,3 +1,4 @@
+import InsightCard from "@/components/cards/InsightCard"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardAction, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { ScrollArea } from "@/components/ui/scroll-area"
@@ -79,6 +80,7 @@ export default async function Show({ params }: PageProps) {
                 <ScrollArea className="md:max-h-[80vh] p-4 border md:col-span-2">
                     <div className="space-y-4 text-foreground/80">
 
+                        {/* Subtitle */}
                         <div className="hover:text-foreground duration-500 cursor-default">
                             <span className="text-xs flex items-center"><Type size={15} className="mr-1" />Subtitle</span>
                             <h3 className="md:text-xl">{ project?.subtitle }</h3>
@@ -88,14 +90,14 @@ export default async function Show({ params }: PageProps) {
 
                         <div className="hover:text-foreground duration-500 cursor-default">
                             <span className="text-xs flex items-center"><TextAlignStart size={15} className="mr-1" />Description</span>
-                            <h5 className="text-xs md:text-md">{ project?.description }</h5>
+                            <h5 className="text-xs md:text-sm">{ project?.description }</h5>
                         </div>
 
                         <Separator />
 
                         <div className="hover:text-foreground duration-500 cursor-default">
                             <span className="text-xs flex items-center"><Target size={15} className="mr-1" />Mission:</span>
-                            <p className="text-sm md:text-md">{ project?.mission }</p>
+                            <p className="text-sm md:text-base">{ project?.mission }</p>
                         </div>
 
                         <Separator />
@@ -107,25 +109,10 @@ export default async function Show({ params }: PageProps) {
                                 Features
                             </h5>
 
-                            <div className="grid md:grid-cols-2">
-                                { project?.features.map((feat) => {
-                                    const Icon = feat.icon
-
-                                    return (
-
-                                        <Card key={feat.title} className="gap-1">
-                                        <CardHeader className="flex flex-col items-center justify-center">
-                                            <div className="size-10 rounded-full bg-emerald-500/50 text-emerald-500 flex items-center justify-center mb-2">
-                                                <Icon className="size-5" />
-                                            </div>
-                                            <CardTitle>{ feat.title }</CardTitle>
-                                        </CardHeader>
-
-                                        <CardContent>
-                                            <p className="font-normal">{ feat.description }</p>
-                                        </CardContent>
-                                    </Card>
-                                )})}
+                            <div className="grid md:grid-cols-2 gap-2">
+                                { project?.features.map((feat) => (
+                                    <InsightCard key={feat.title} data={feat} />
+                                ))}
                             </div>
                         </div>
 
@@ -138,23 +125,10 @@ export default async function Show({ params }: PageProps) {
                                 Results
                             </h5>
 
-                            <div className="grid md:grid-cols-2">
-                                { project?.results.map((result) => {
-                                    const Icon = result.icon
-
-                                    return(
-                                        <Card key={result.title} className="gap-1">
-                                        <CardHeader className="flex flex-col items-center justify-center">
-                                            <div className="size-10 rounded-full bg-emerald-500/50 text-emerald-500 flex items-center justify-center mb-2">
-                                                <Icon className="size-5" />
-                                            </div>
-                                            <CardTitle>{ result.title }</CardTitle>
-                                        </CardHeader>
-                                        <CardContent>
-                                            <p className="font-normal">{ result.description }</p>
-                                        </CardContent>
-                                    </Card>
-                                )})}
+                            <div className="grid md:grid-cols-2 gap-2">
+                                { project?.results.map((result) => (
+                                    <InsightCard key={result.title} data={result} />
+                                ))}
                             </div>
                         </div>
 
@@ -167,24 +141,10 @@ export default async function Show({ params }: PageProps) {
                                 Key Takeaways
                             </h5>
 
-                            <div className="grid md:grid-cols-2">
-                                { project?.takeaways.map((takeaway) => {
-                                    const Icon = takeaway.icon
-
-                                    return(
-                                        <Card key={takeaway.title} className="gap-1">
-                                        <CardHeader className="flex flex-col items-center justify-center">
-                                            <div className="size-10 rounded-full bg-emerald-500/50 text-emerald-500 flex items-center justify-center mb-2">
-                                                <Icon className="size-5" />
-                                            </div>
-                                            <CardTitle>{ takeaway.title }</CardTitle>
-                                        </CardHeader>
-
-                                        <CardContent>
-                                            <p className="font-normal">{ takeaway.description }</p>
-                                        </CardContent>
-                                    </Card>
-                                )})}
+                            <div className="grid md:grid-cols-2 gap-2">
+                                { project?.takeaways.map((takeaway) => (
+                                    <InsightCard key={takeaway.title} data={takeaway} />
+                                ))}
                             </div>
                         </div>
                     </div>
