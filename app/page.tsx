@@ -20,7 +20,7 @@ export default function Home() {
     <div className="relative flex-1 overflow-hidden flex flex-col justify-center lg:block">
 
       {/* Profile */}
-      <div className="flex justify-center pt-10 lg:hidden">
+      <div className="flex justify-center pt-6 lg:hidden">
         <div className="relative size-40 rounded-full overflow-hidden ring-2 ring-emerald-500/30">
           <div className="absolute inset-0 bg-emerald-500/10 blur-xl rounded-full" />
           <Image
@@ -47,16 +47,16 @@ export default function Home() {
       </div>
 
       {/* Content */}
-      <div className="z-10 flex flex-col gap-6 px-6 py-10 items-center text-center
+      <div className="z-10 flex flex-col gap-6 px-6 sm:py-10 items-center text-center
                       lg:absolute lg:bottom-0 lg:left-0 lg:px-20 lg:pb-24 lg:items-start lg:text-left">
 
         {/* Headline */}
-        <div>
+        <div className="sm:w-lg">
           <h1 className="text-4xl sm:text-5xl font-semibold text-zinc-100 leading-tight">
-            Hi, I'm Jerdon
+            Hi, I'm Jerdon.
           </h1>
-          <h2 className="text-5xl sm:text-6xl font-semibold text-emerald-400 leading-tight">
-            web developer.
+          <h2 className="text-lg sm:text-xl font-semibold text-emerald-400 leading-tight">
+            Building scalable full-stack applications with a focus on robust backend architecture and clean code patterns.
           </h2>
         </div>
 
@@ -71,6 +71,8 @@ export default function Home() {
               className="object-contain"
             />
           </div>
+
+          <div></div>
 
           <div className="flex flex-col gap-1 text-left">
             <p className="text-zinc-200 text-base font-medium">
