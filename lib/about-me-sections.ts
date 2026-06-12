@@ -15,7 +15,7 @@ export const sections: ISecction[] = [
         title: "Achievements and Progress",
         content: timelineData,
     }, {
-        title: "Tech Skills",
+        title: "Tech Tools",
         content: skills,
     }
 ]
