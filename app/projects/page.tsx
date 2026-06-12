@@ -9,8 +9,8 @@ export default function Projects() {
     return (
         <div className="flex flex-col justify-center items-center px-4">
             <div className="my-5 flex-0 text-center w-full md:w-2/3 space-y-4">
-                <div className="text-2xl font-bold">My Works</div>
-                <p className="text-zinc-400 leading-relaxed">A collection of projects I've worked on.</p>
+                <h1 className="text-2xl font-bold">My Capstone Project</h1>
+                <h3 className="text-zinc-400 leading-relaxed">An enterprise-level project for my last year in the university.</h3>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 overflow-hidden flex-1 w-full md:w-[80%]">
