@@ -51,7 +51,7 @@ export default function RootLayout({
           </Link>
           <Navbar />
         </header>
-        <main className="flex-1 flex flex-col">
+        <main className="flex-1 flex flex-col cursor-default">
           {children}
         </main>
       </body>
