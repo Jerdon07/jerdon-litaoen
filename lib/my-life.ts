@@ -1,5 +1,11 @@
 
-export const myLife = [
+export interface ILife {
+    id: number
+    title: string
+    content: string
+}
+
+export const myLife: ILife[] = [
         {
             id: 1,
             title: "My Programming Journey",
