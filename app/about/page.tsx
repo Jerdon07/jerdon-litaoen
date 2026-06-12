@@ -1,9 +1,8 @@
 'use client'
 
-import { MonitorSmartphone, Server, Workflow } from "lucide-react"
 import { useEffect, useRef, useState } from "react"
 import { sections } from "@/lib/about-me-sections"
-import { Card } from "@/components/ui/card"
+import { Card, CardAction, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { ILife } from "@/lib/my-life"
 import { ITimeline } from "@/lib/timelines"
@@ -101,19 +100,21 @@ export default function About() {
                                                 { section.content.map((skill: ISkill) => {
                                                     const Icon = skill.icon
                                                     return (
-                                                        <Card key={skill.id} className="flex flex-row px-10">
-                                                            <div className="rounded-full flex items-center justify-center size-16 bg-emerald-600">
+                                                        <Card key={skill.id} className="flex flex-row items-center px-10">
+                                                            <div className="rounded-full flex items-center justify-center aspect-square size-16 mx-0 bg-emerald-800 text-emerald-400">
                                                                 <Icon />
                                                             </div>
 
-                                                            <div>
-                                                                <h6 className="text-2xl font-semibold">{ skill.title }</h6>
-                                                                <p>{ skill.description }</p>
+                                                            <CardHeader className="w-full flex flex-col justify-center">
+                                                                <CardTitle className="text-2xl font-semibold">{ skill.title }</CardTitle>
+                                                                <CardDescription className="pl-4">{ skill.description }</CardDescription>
                                                                 
+                                                                <CardAction className="w-full flex flex-row justify-end">
                                                                 { skill.tools.map((tool) => (
                                                                     <Badge key={tool} className="mx-1 px-1 bg-emerald-800">{ tool }</Badge>
                                                                 )) }
-                                                            </div>
+                                                                </CardAction>
+                                                            </CardHeader>
                                                         </Card>
                                                     )
                                                 }) }
