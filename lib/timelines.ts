@@ -1,43 +1,31 @@
-import { Compass, GitMerge, LucideIcon, Sparkles } from "lucide-react"
 
-interface TimelineItem {
-    id: string
-    icon: LucideIcon
+export interface ITimeline {
+    id: number
+    year: string
     title: string
-    subtitle: string
-    content: string[]
+    content: string
 }
 
-export const timelineData: TimelineItem[] = [
+export const timelineData: ITimeline[] = [
         {
-            id: "beyond-codebase",
-            icon: Compass,
-            title: "Beyond the Codebase",
-            subtitle: "My Drive & Philosophy",
-            content: [
-                "I thrive at the intersection of robust backend architecture and real-world impact. For me, full-stack development isn't just about writing code—it's about building scalable digital solutions that solve tangible problems for communities and stakeholders every single morning.",
-
-                "Great software requires balancing technical excellence with real-world constraints. I view teamwork as a collaborative exercise in navigating stakeholder feedback, architectural trade-offs, and project goals to deliver reliable, maintainable systems."
-            ]
+            id: 1,
+            year: '2022-2023',
+            title: 'University of the Cordilleras',
+            content: 'Where I step in the University. Learned the fundamentals of programming and Data Structures & Algorithms with Java, Object-oriented programming with Python, System Analysis & Design'
         }, {
-            id: "operating-principles",
-            icon: GitMerge,
-            title: "My Operating Principles",
-            subtitle: "Engineering Standards",
-            content: [
-                "Predictable architectural patterns (Thin Controllers, Service/Action layers",
-
-                "Comprehensive automated testing and comprehensive documentation",
-
-                "Performance-driven frontend components paired with tight type safety",
-            ]
+            id: 2,
+            year: '2023-2024',
+            title: "Beginning of Web Development",
+            content: 'Focused on learning CSS for styling, JavaScript for DOM manipulation, PHP for basic CRUD, introduction to SQL'
         }, {
-            id: "off-screen",
-            icon: Sparkles,
-            title: "Off-Screen",
-            subtitle: "Grounded Hobbies",
-            content: [
-                "When I step away from the IDE, I focus on tactile, deliberate crafts. Whether that is architecting meticulous, highly organized miniature survival worlds block-by-block, or experimenting in the kitchen optimizing production ratios for premium, creamy frozen desserts, I love the patience of building things from scratch."
-            ]
+            id: 3,
+            year: '2024-2025',
+            title: "Introduction to Backend Framework",
+            content: "This is like a roller coaster ride for me. Laravel was introduced, and so was my first capstone project. Did my very best to pass the project, but still fail. Didn't really mind the framework since I'm too focused on the project but it ended up wasting my half year. I shall return, Laravel!"
+        }, {
+            id: 4,
+            year: '2025-2026',
+            title: "Present",
+            content: "This is where things get sky-rocketed. Doing my second and last shot in capstone project. I got the privilege to word as a Project Manager and Quality Assurance intern in IOL Inc."
         },
     ];
