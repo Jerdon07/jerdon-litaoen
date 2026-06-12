@@ -1,52 +1,149 @@
-import { MonitorSmartphone, Server, Workflow } from "lucide-react";
+'use client'
+
+import { MonitorSmartphone, Server, Workflow } from "lucide-react"
+import { useEffect, useRef, useState } from "react"
+import { sections } from "@/lib/about-me-sections"
+import { Card } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
+import { ILife } from "@/lib/my-life"
+import { ITimeline } from "@/lib/timelines"
+import { ISkill } from "@/lib/tech-stacks"
 
 export default function About() {
-    const skills = [
-        {
-            title: "Backend & Core Architecture",
-            description: "I focus on server-side stability, data integrity, and scalable system patterns.",
-            icon: <Server size={40} className="text-emerald-900" />,
-            tools: ["Laravel", "NextJS", "PostgreSQL", "MySQL"]
-        },
-        {
-            title: "Frontend & Reactive UI",
-            description: "I focus on user interaction, state management, and building fluid single-page experiences.",
-            icon: <MonitorSmartphone size={40} className="text-emerald-900" />,
-            tools: ["Vue 3", "React", "InertiaJS", "TypeScript", "Tailwind CSS", "Figma"]
-        },
-        {
-            title: "Tooling & Workflow",
-            description: "I focus on modern developer efficiency, quick iteration, and lightweight environments.",
-            icon: <Workflow size={40} className="text-emerald-900" />,
-            tools: ["Git", "Bun", "Composer", "Laravel Herd", "DBngin", "Pest"]
+    const [activeId, setActiveId] = useState<string>('Get to Know Me')
+
+    const itemRefs = useRef<{ [key: string]: HTMLElement | null }>({})
+
+    useEffect(() => {
+        const observerOptions = {
+            root: null,
+            rootMargin: '-20% 0px -60% 0px',
+            threshold: 0,
         }
-    ]
+
+        const observerCallback = (entries: IntersectionObserverEntry[]) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    setActiveId(entry.target.id)
+                }
+            })
+        }
+
+        const observer = new IntersectionObserver(observerCallback, observerOptions)
+
+        sections.forEach((item) => {
+            const element = itemRefs.current[item.title]
+
+            if (element) observer.observe(element)
+        })
+
+        return () => observer.disconnect()
+    })
+
+    const scrollToSection = (id: string) => {
+        const element = itemRefs.current[id];
+        if (element) {
+        element.scrollIntoView({
+            behavior: 'smooth',
+            block: 'center',
+        });
+        }
+    }
 
     return (
-        <div className="flex flex-col justify-center items-center px-4">
-            <div className="absolute top-3/5 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] md:w-172 h-52 bg-emerald-500/10 rounded-full blur-2xl pointer-events-none" />
-            <div className="my-5 flex-0 text-center w-full md:w-2/3 space-y-4">
-                <h1 className="text-2xl font-bold">Backend Specialized Web Developer</h1>
-                <p className="text-zinc-400 leading-relaxed">I build full-stack web applications using Laravel, Vue, and Inertia. My approach is straightforward: I write clean, highly testable code to deliver smooth user experiences backed by reliable backend architecture.</p>
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 overflow-hidden flex-1 w-full md:w-[80%]">
-                {skills.map((skill) => (
-                    <div key={skill.title} className="flex flex-col py-8 items-center gap-3 border h-full text-center bg-zinc-900 border-zinc-600 rounded-lg px-6">
-                        <div className="rounded-full flex items-center justify-center size-16 bg-emerald-600">
-                            {skill.icon}
-                        </div>
+        <div className="mx-w-2xl mx-auto px-4 py-12">
 
-                        <div>
-                            <h3 className="font-semibold text-lg">{skill.title}</h3>
-                            <p className="text-zinc-400">{skill.description}</p>
-                        </div>
+            <div className="grid grid-cols-4 gap-8 items-start">
+                {/* Left */}
+                <div className="col-span-3">
+                    <ol>
+                        {sections.map((section) => (
+                            <li key={section.title} id={section.title} ref={(el) => { itemRefs.current[section.title] = el }} className="relative py-3 group scroll-mt-24">
+                                <h5 className="text-4xl font-bold">{ section.title }</h5>
+                                <div className="pl-4">
+                                    <div>
+                                        { section.title === 'Get to Know Me' && (
+                                            <div>
+                                                { section.content.map((life: ILife) => (
+                                                    <div key={life.id} className="py-6 space-y-3">
+                                                        <h1 className="text-2xl font-semibold">{ life.title }</h1>
+                                                        <p className="pl-4 border-l-2">{ life.content }</p>
+                                                    </div>
+                                                )) }
+                                            </div>
+                                        ) }
 
-                        <div className="px-4 md:px-8">
-                            <h3 className="text-emerald-500 text-lg">Tools:</h3>
-                            <p className="text-sm text-zinc-300">{skill.tools.join(", ")}</p>
-                        </div>
-                    </div>
-                ))}
+                                        { section.title === 'Achievements and Progress' && (
+                                            <ol className="relative my-6 border-l border-gray-700 ml-4 md:ml-10 space-y-12 mr-50">
+                                                { section.content.map((timeline: ITimeline) => (
+                                                    <li key={timeline.id} className="relative pl-8 md:pl-10 group scroll-mt-24">
+                                                        <div className="absolute -left-5.25 top-0 flex h-10 w-20 items-center justify-center overflow-y-visible rounded-full bg-gray-900 border border-gray-700">
+                                                            { timeline.year }
+                                                        </div>
+
+                                                        <div className="pl-10 transition-all duration-300">
+                                                            <div className="mb-3 space-y-3">
+                                                                <h3 className="text-lg font-bold">
+                                                                    { timeline.title }
+                                                                </h3>
+                                                                <p>
+                                                                    { timeline.content }
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                )) }
+                                            </ol>
+                                        ) }
+
+                                        { section.title === 'Tech Skills' && (
+                                            <div className="space-y-4 py-6 mr-50">
+                                                { section.content.map((skill: ISkill) => {
+                                                    const Icon = skill.icon
+                                                    return (
+                                                        <Card key={skill.id} className="flex flex-row px-10">
+                                                            <div className="rounded-full flex items-center justify-center size-16 bg-emerald-600">
+                                                                <Icon />
+                                                            </div>
+
+                                                            <div>
+                                                                <h6 className="text-2xl font-semibold">{ skill.title }</h6>
+                                                                <p>{ skill.description }</p>
+                                                                
+                                                                { skill.tools.map((tool) => (
+                                                                    <Badge key={tool} className="mx-1 px-1 bg-emerald-800">{ tool }</Badge>
+                                                                )) }
+                                                            </div>
+                                                        </Card>
+                                                    )
+                                                }) }
+                                            </div>
+                                        ) }
+                                    </div>
+                                </div>
+                            </li>
+                        ))}
+                    </ol>
+                </div>
+
+                {/* Right */}
+                <aside className="hidden lg:block lg:col-span-1 lg:sticky lg:top-24 pl-6 border-l border-emerald-700">
+                    <nav className="space-y-1">
+                        { sections.map((section) => {
+                            const isActive = activeId === section.title
+
+                            return (
+                                <button key={section.title} onClick={() => scrollToSection(section.title)} className="w-full text-left block py-2 px-3 text-sm font-medium rounded-lg transition-all duration-200 cursor-pointer">
+                                    <div className={`flex items-center gap-2  ${ isActive ? 'text-gray-300 font-semibold' : 'text-gray-500' }`}>
+                                        <span className="h-3 w-0.5 rounded-full transition-all duration-200" />
+
+                                        {section.title}
+                                    </div>
+                                </button>
+                            )
+                        }) }
+                    </nav>
+                </aside>
             </div>
         </div>
     )
