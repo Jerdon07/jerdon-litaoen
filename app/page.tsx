@@ -23,8 +23,8 @@ export default function Home() {
 
       {/* Profile */}
       <div className="flex justify-center pt-6 lg:hidden">
-        <div className="relative size-40 rounded-full overflow-hidden ring-2 ring-emerald-500/30">
-          <div className="absolute inset-0 bg-emerald-500/10 blur-xl rounded-full" />
+        <div className="relative size-40 rounded-full overflow-hidden ring-2 ring-primary/30">
+          <div className="absolute inset-0 bg-primary/10 blur-xl rounded-full" />
           <Image
             src="/profile.png"
             alt="Jerdon Litaoen"
@@ -36,7 +36,7 @@ export default function Home() {
       </div>
 
       <div className="hidden lg:block absolute bottom-0 right-10 size-130 z-10">
-        <div className="absolute -inset-x-4 bottom-0 top-8 bg-emerald-500/10 rounded-t-full blur-2xl" />
+        <div className="absolute -inset-x-4 bottom-0 top-8 bg-primary/10 rounded-t-full blur-2xl" />
         <div className="relative w-full h-full">
           <Image
             src="/profile.png"
@@ -54,10 +54,10 @@ export default function Home() {
 
         {/* Headline */}
         <div className="sm:w-lg">
-          <h1 className="text-4xl sm:text-5xl font-semibold text-zinc-100 leading-tight">
+          <h1 className="text-4xl sm:text-5xl font-semibold text-foreground leading-tight">
             Hi, I'm Jerdon.
           </h1>
-          <h2 className="text-lg sm:text-xl font-semibold text-emerald-400 leading-tight">
+          <h2 className="text-lg sm:text-xl font-semibold text-primary leading-tight">
             Building scalable full-stack applications with a focus on robust backend architecture and clean code patterns.
           </h2>
         </div>
@@ -75,12 +75,12 @@ export default function Home() {
           </div>
 
           <div className="flex flex-col gap-1 text-left">
-            <p className="text-zinc-200 text-base font-medium">
+            <p className="text-foreground text-base font-medium">
               Bachelor of Science in Information Technology
             </p>
-            <p className="text-zinc-500 text-sm">
+            <p className="text-foreground/40 text-sm">
               From{" "}
-              <span className="text-zinc-300">University of the Cordilleras</span>
+              <span className="text-foreground">University of the Cordilleras</span>
               , Baguio City
             </p>
           </div>
@@ -88,16 +88,16 @@ export default function Home() {
 
         {/* Tesda Certificate */}
         <div className="pl-10 flex items-center gap-4">
-          <div className="w-10 h-10 shrink-0 bg-emerald-900 rounded-full flex items-center justify-center">
+          <div className="w-10 h-10 shrink-0 bg-blue-900 rounded-full flex items-center justify-center">
             <Award className="object-contain text-5xl" />
           </div>
 
           <div className="flex flex-col gap-1 text-left">
-            <p className="text-zinc-200 text-base font-medium">
+            <p className="text-foreground text-base font-medium">
               Web Development NC III
             </p>
             
-            <p className="text-zinc-500 text-sm">
+            <p className="text-foreground/40 text-sm">
               Technical Education and Skills Development Authority
                 (<Badge className="px-2">TESDA</Badge>)
             </p>
@@ -112,7 +112,7 @@ export default function Home() {
               title={tech.name}
               className="group flex items-center justify-center w-10 h-10 rounded-lg backdrop-blur-sm transition-all duration-200"
             >
-              <i className={`${tech.iconClass} text-4xl text-zinc-500 group-hover:text-emerald-400 transition-colors duration-200`} />
+              <i className={`${tech.iconClass} text-4xl`} />
             </div>
           ))}
         </div>
@@ -121,13 +121,13 @@ export default function Home() {
         <div className="flex items-center gap-3">
           <Link
             href="/projects"
-            className="px-6 py-2.5 bg-emerald-500 hover:bg-emerald-400 text-zinc-950 text-sm font-semibold rounded-lg transition-colors duration-200"
+            className="px-6 py-2.5 bg-primary hover:bg-primary/80 text-primary-foreground text-sm font-semibold rounded-lg transition-colors duration-200"
           >
             View Projects
           </Link>
           <Link
             href="/about"
-            className="px-6 py-2.5 border border-zinc-700 hover:border-emerald-500/60 text-zinc-400 hover:text-emerald-400 text-sm font-semibold rounded-lg backdrop-blur-sm transition-colors duration-200"
+            className="px-6 py-2.5 border border-muted hover:border-primary text-foreground/60 hover:text-primary text-sm font-semibold rounded-lg backdrop-blur-sm transition-colors duration-200"
           >
             About Me
           </Link>
