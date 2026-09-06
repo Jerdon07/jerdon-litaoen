@@ -41,7 +41,7 @@ export default function About() {
 
             <div
                 ref={mobileNav}
-                className="lg:hidden sticky top-0 z-10 bg-background/80 backdrop-blur-sm border-b border-gray-800 mb-8 flex gap-2 overflow-x-auto py-3 px-1"
+                className="lg:hidden sticky top-0 z-10 bg-background/80 backdrop-blur-sm border-b border mb-8 flex gap-2 overflow-x-auto py-3 px-1"
             >
                 {sections.map((section: AboutSectionProps) => {
                     const isActive = activeId === section.title
@@ -52,8 +52,8 @@ export default function About() {
                             onClick={() => scrollToSection(section.title)}
                             className={`shrink-0 text-sm px-3 py-1.5 rounded-full transition-all duration-200 whitespace-nowrap ${
                                 isActive
-                                    ? 'bg-emerald-800 text-emerald-200 font-semibold'
-                                    : 'text-gray-500 hover:text-gray-300'
+                                    ? 'bg-primary text-primary-foreground font-semibold'
+                                    : 'text-muted-foreground hover:text-muted'
                             }`}
                         >
                             {section.title}
@@ -90,10 +90,10 @@ export default function About() {
                                     )}
 
                                     {section.title === 'Achievements and Progress' && (
-                                        <ol className="relative my-6 border-l border-gray-700 ml-4 sm:ml-8 space-y-12">
+                                        <ol className="relative my-6 ml-4 sm:ml-8 space-y-12">
                                             {section.content.map((timeline: TimelineProps) => (
                                                 <li key={timeline.id} className="relative pl-8 sm:pl-12 scroll-mt-24">
-                                                    <div className="absolute -left-10.5 top-0 flex h-10 w-20 items-center justify-center rounded-full bg-gray-900 border border-gray-700 text-sm">
+                                                    <div className="absolute -left-10.5 top-0 flex h-10 w-20 items-center justify-center rounded-full bg-muted border text-sm">
                                                         {timeline.year}
                                                     </div>
 
@@ -202,7 +202,7 @@ export default function About() {
                     </ol>
                 </div>
 
-                <aside className="hidden lg:block lg:col-span-3 lg:sticky lg:top-24 pl-6 border-l border-emerald-700">
+                <aside className="hidden lg:block lg:col-span-3 lg:sticky lg:top-24 pl-6 border-l border-primary">
                     <nav className="space-y-1">
                         {sections.map((section) => {
                             const isActive = activeId === section.title
@@ -212,8 +212,8 @@ export default function About() {
                                     onClick={() => scrollToSection(section.title)}
                                     className="w-full text-left py-2 px-3 text-sm font-medium rounded-lg transition-all duration-200 cursor-pointer"
                                 >
-                                    <div className={`flex items-center gap-2 ${isActive ? 'text-gray-300 font-semibold' : 'text-gray-500 hover:text-gray-400'}`}>
-                                        <span className={`h-3 w-0.5 rounded-full transition-all duration-200 ${isActive ? 'bg-emerald-400' : 'bg-transparent'}`} />
+                                    <div className={`flex items-center gap-2 ${isActive ? 'text-foreground font-semibold' : 'text-muted-foreground/40 hover:text-muted-foreground'}`}>
+                                        <span className={`h-3 w-0.5 rounded-full transition-all duration-200 ${isActive ? 'bg-primary' : 'bg-transparent'}`} />
                                         {section.title}
                                     </div>
                                 </button>
