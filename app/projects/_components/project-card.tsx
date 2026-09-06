@@ -1,5 +1,5 @@
 import { Badge } from "@/components/ui/badge"
-import { Card, CardAction, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { ProjectProps } from "@/lib/projects"
 import Image from "next/image"
 import Link from "next/link"
@@ -14,9 +14,9 @@ const ProjectCard = ({
     <Link
         href={`/projects/${project.id}`}
         key={project.id}
-        className="block h-full"
+        className="block h-full border rounded as-child"
     >
-        <Card className="pt-0 cursor-pointer h-full">
+        <Card className="pt-0 border rounded cursor-pointer h-full as-child">
             <div className="relative aspect-video bg-black/35">
                 <Image
                     src={project.thumbnail}
@@ -24,7 +24,7 @@ const ProjectCard = ({
                     fill
                 />
 
-                <Badge className="absolute right-2 bottom-2 bg-card px-2 py-1 border-card">
+                <Badge className="absolute right-2 bottom-2 bg-card px-2 py-1">
                     {project.badge}
                 </Badge>
             </div>
