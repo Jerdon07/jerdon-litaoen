@@ -17,7 +17,7 @@ export default function InsightCard({ data }: InsightCardProps) {
     return (
         <Card className="gap-1 py-3">
             <CardHeader className="px-2 flex flex-col items-center justify-center">
-                <div className="size-10 rounded-full bg-emerald-500/50 text-emerald-500 flex items-center justify-center mb-2">
+                <div className="size-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center mb-2">
                     <Icon className="size-5" />
                 </div>
 
