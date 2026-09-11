@@ -30,12 +30,12 @@ export default async function Show({ params }: PageProps) {
             <div className="grid md:grid-cols-3 gap-10">
 
                 {/* Sidebar */}
-                <div className="col-span-1">
+                <div className="col-span-1 bg-sidebar">
                     <ProjectSidebar project={project} />
                 </div>
 
                 {/* Main */}
-                <ScrollArea className="md:max-h-[80vh] p-4 border md:col-span-2">
+                <ScrollArea className="rounded md:max-h-[80vh] p-4 border md:col-span-2">
                     <div className="space-y-4 text-foreground/80">
 
                         {/* Subtitle */}
