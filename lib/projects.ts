@@ -137,6 +137,122 @@ export const projects: ProjectProps[] = [
 
     {
         id: 2,
+        title: 'Inventry',
+        subtitle: 'A sari-sari store inventory tracker, built with native PHP and JavaScript',
+        description: "Inventry is a lightweight inventory app for a sari-sari store. It keeps your products, prices, and stock counts in one place, so you know what to restock before customers ask. Built without frameworks to practice core web fundamentals: authentication and authorization, sessions, request validation, and hand-written SQL.",
+        badge: 'Personal Project',
+        year: 2026,
+        thumbnail: '/inventry.png',
+        images: ['/inventry/1.png', '/inventry/2.png', '/inventry/3.png'],
+        stack: [
+            {
+                name: 'PHP 8.5',
+                color: 'bg-indigo-500/15 text-indigo-600 dark:text-indigo-400',
+            }, {
+                name: 'MySQL',
+                color: 'bg-sky-500/15 text-sky-600 dark:text-sky-400',
+            }, {
+                name: 'JavaScript',
+                color: 'bg-yellow-500/15 text-yellow-700 dark:text-yellow-400',
+            }, {
+                name: 'HTML 5',
+                color: 'bg-orange-500/15 text-orange-600 dark:text-orange-400',
+            }, {
+                name: 'CSS 3',
+                color: 'bg-blue-500/15 text-blue-600 dark:text-blue-400',
+            },
+        ],
+        mission: "I built Inventry to learn by doing: no frameworks, no ORM, no shortcuts. I wanted to properly understand the parts I had only used through abstractions, like session management, route protection, request validation, and writing SQL by hand, by building them myself and seeing where they break.",
+        role: ['Solo Developer', 'Full-Stack'],
+        timeline: '3 weeks',
+        features: [
+            {
+                title: 'Track Every Product',
+                description: 'Record names, prices, and quantities. Add, edit, or remove items in a few clicks.',
+                icon: 'Package'
+            }, {
+                title: 'Stay on Top of Stock',
+                description: "See how many of each item is left at a glance, so restocking isn't guesswork.",
+                icon: 'Boxes'
+            }, {
+                title: 'Private to Your Account',
+                description: 'Products are tied to your account and sit behind login-only routes.',
+                icon: 'ShieldCheck'
+            },
+        ],
+        takeaways: [
+            {
+                title: 'Sessions & Authentication',
+                description: 'Built registration and login with bcrypt-hashed passwords, session ID regeneration, and middleware that guards protected routes.',
+                icon: 'KeyRound'
+            }, {
+                title: 'JSON Request–Response Flow',
+                description: 'Connected the frontend to the backend with fetch and JSON, handling validation errors and redirects without page reloads.',
+                icon: 'Braces'
+            }, {
+                title: 'Building an API from Scratch',
+                description: 'Designed endpoints for creating, listing, and deleting products on top of a custom router.',
+                icon: 'Server'
+            }, {
+                title: 'Hand-Written SQL',
+                description: 'Wrote every query by hand with PDO prepared statements, with no ORM in between.',
+                icon: 'Database'
+            },
+        ]
+    },
+
+    {
+        id: 3,
+        title: 'Cached',
+        subtitle: 'Centralized Inventory & Warehouse Management platform for 12+ Different Roles',
+        description: 'The Inventory & Warehouse Management System (IWMS) is a web-based business management application built to help organizations efficiently manage products, inventory, warehouses, purchasing, receiving, sales, and stock movements from a single platform.',
+        badge: 'Personal Project',
+        year: 2026,
+        thumbnail: '/cached.png',
+        stack: [
+            {
+                name: 'Laravel',
+                color: 'bg-orange-500/50 text-orange-500'
+            }, {
+                name: 'Filament',
+                color: 'bg-orange-400/50 text-orange-400'
+            },
+        ],
+        mission: 'To replace manual processes such as paper records and spreadsheets with a centralized, real-time inventory management solution.',
+        role: ['Solo Developer'],
+        timeline: '4 Months Project',
+        github: 'https://github.com/Jerdon07/cached',
+        features: [
+            {
+                title: '12+ Roles',
+                description: 'Role based application for difference access.',
+                icon: 'UserKey'
+            }, {
+                title: 'Catalog',
+                description: 'Manages products, categories, brands, units.',
+                icon: 'BookOpenText'
+            }, {
+                title: 'Inventory & Warehousing',
+                description: 'Movements, adjustments, transfers, and Multi-location stock tracking.',
+                icon: 'Warehouse'
+            }, {
+                title: 'Purchasing',
+                description: 'Manages orders, approvals, goods receiving.',
+                icon: 'FileInput'
+            }, {
+                title: 'Sales',
+                description: 'Manages Customer orders and fulfillment.',
+                icon: 'TrendingUp'
+            }, {
+                title: 'Reports',
+                description: 'Checks for Valuation, low stock, activity.',
+                icon: 'ChartLine'
+            },
+        ]
+    },
+
+    {
+        id: 4,
         title: 'ZircuVia',
         subtitle: 'Circular Tourism Platform for Puerto Princesa City, Palawan, Philippines.',
         description: "Discover sustainable businesses, track your environmental fee payments, and join exciting events and activities, while making a better environmentally conscious choice along the way.",
@@ -207,54 +323,4 @@ export const projects: ProjectProps[] = [
             }
         ]
     },
-
-    {
-        id: 3,
-        title: 'Cached',
-        subtitle: 'Centralized Inventory & Warehouse Management platform for 12+ Different Roles',
-        description: 'The Inventory & Warehouse Management System (IWMS) is a web-based business management application built to help organizations efficiently manage products, inventory, warehouses, purchasing, receiving, sales, and stock movements from a single platform.',
-        badge: 'Personal Project',
-        year: 2026,
-        thumbnail: '/cached.png',
-        stack: [
-            {
-                name: 'Laravel',
-                color: 'bg-orange-500/50 text-orange-500'
-            }, {
-                name: 'Filament',
-                color: 'bg-orange-400/50 text-orange-400'
-            },
-        ],
-        mission: 'To replace manual processes such as paper records and spreadsheets with a centralized, real-time inventory management solution.',
-        role: ['Solo Developer'],
-        timeline: '4 Months Project',
-        github: 'https://github.com/Jerdon07/cached',
-        features: [
-            {
-                title: '12+ Roles',
-                description: 'Role based application for difference access.',
-                icon: 'UserKey'
-            }, {
-                title: 'Catalog',
-                description: 'Manages products, categories, brands, units.',
-                icon: 'BookOpenText'
-            }, {
-                title: 'Inventory & Warehousing',
-                description: 'Movements, adjustments, transfers, and Multi-location stock tracking.',
-                icon: 'Warehouse'
-            }, {
-                title: 'Purchasing',
-                description: 'Manages orders, approvals, goods receiving.',
-                icon: 'FileInput'
-            }, {
-                title: 'Sales',
-                description: 'Manages Customer orders and fulfillment.',
-                icon: 'TrendingUp'
-            }, {
-                title: 'Reports',
-                description: 'Checks for Valuation, low stock, activity.',
-                icon: 'ChartLine'
-            },
-        ]
-    }
 ]
